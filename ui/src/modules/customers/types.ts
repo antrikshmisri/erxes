@@ -1,77 +1,22 @@
+import {
+  IVisitorContact as IVisitorContactC,
+  ICustomerLinks as ICustomerLinksC,
+  ICustomerDoc as ICustomerDocC,
+  IUrlVisits as IUrlVisitsC,
+  ICustomer as ICustomerC
+} from 'erxes-ui/lib/types'
+import { ActivityLogQueryResponse as ActivityLogQueryResponseC } from 'erxes-ui/lib/activityLogs/types';
 import { QueryResponse } from 'modules/common/types';
-import { ICompany } from 'modules/companies/types';
-import { ITag } from 'modules/tags/types';
-import { IActivityLog } from '../activityLogs/types';
-import { IUser } from '../auth/types';
-import { IIntegration } from '../settings/integrations/types';
 
-export interface IVisitorContact {
-  email?: string;
-  phone?: string;
-}
+export interface IVisitorContact extends IVisitorContactC { }
 
-export interface ICustomerLinks {
-  website?: string;
-  facebook?: string;
-  twitter?: string;
-  linkedIn?: string;
-  youtube?: string;
-  github?: string;
-}
+export interface ICustomerLinks extends ICustomerLinksC { }
 
-export interface ICustomerDoc {
-  firstName?: string;
-  lastName?: string;
-  phones?: string[];
-  sex?: number;
-  primaryPhone?: string;
-  primaryEmail?: string;
-  emails?: string[];
-  avatar?: string;
-  state?: string;
-  ownerId?: string;
-  position?: string;
-  location?: {
-    userAgent?: string;
-    country?: string;
-    countryCode?: string;
-    remoteAddress?: string;
-    hostname?: string;
-    language?: string;
-  };
-  department?: string;
-  leadStatus?: string;
-  hasAuthority?: string;
-  description?: string;
-  doNotDisturb?: string;
-  links?: ICustomerLinks;
-  customFieldsData?: { [key: string]: any };
-  visitorContactInfo?: IVisitorContact;
-  code?: string;
-  birthDate?: string;
-  emailValidationStatus?: string;
-  phoneValidationStatus?: string;
+export interface ICustomerDoc extends ICustomerDocC { }
 
-  isOnline?: boolean;
-  lastSeenAt?: number;
-  sessionCount?: number;
-}
+export interface IUrlVisits extends IUrlVisitsC { }
 
-export interface IUrlVisits {
-  url: string;
-  count: number;
-  createdAt: string;
-}
-
-export interface ICustomer extends ICustomerDoc {
-  _id: string;
-  owner?: IUser;
-  integration?: IIntegration;
-  trackedData?: any[];
-  urlVisits?: IUrlVisits[];
-  getTags?: ITag[];
-  companies?: ICompany[];
-}
+export interface ICustomer extends ICustomerC { }
 
 // mutation types
 
@@ -183,7 +128,4 @@ export type CustomerDetailQueryResponse = {
   loading: boolean;
 };
 
-export type ActivityLogQueryResponse = {
-  activityLogs: IActivityLog[];
-  subscribeToMore: any;
-} & QueryResponse;
+export type ActivityLogQueryResponse = ActivityLogQueryResponseC;

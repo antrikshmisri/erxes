@@ -1,3 +1,4 @@
+import { IIntegration as ICommonIntegration } from 'erxes-ui/lib/inbox/types'
 import { QueryResponse } from 'modules/common/types';
 import { IForm } from 'modules/forms/types';
 import { ILeadData, ILeadIntegration, IWebhookData } from 'modules/leads/types';
@@ -119,23 +120,13 @@ export interface IMessengerApps {
   leads?: ILead[];
 }
 
-export interface IIntegration {
-  _id: string;
-  kind: string;
-  name: string;
-  brandId?: string;
-  code: string;
-  formId: string;
-  languageCode?: string;
-  createUrl: string;
-  createModal: string;
+export interface IIntegration extends ICommonIntegration {
   messengerData?: IMessengerData;
   form: IForm;
   uiOptions?: IUiOptions;
   leadData: ILeadData;
   brand: IBrand;
   channels: IChannel[];
-  isActive?: boolean;
   webhookData?: IWebhookData;
   leadMessengerApps?: ILeadMessengerApp[];
   websiteMessengerApps?: IWebsiteMessengerApp[];

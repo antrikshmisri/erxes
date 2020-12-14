@@ -1,4 +1,3 @@
-import queries from './queries';
-import subscriptions from './subscriptions';
+import {ActivityLogsQueiries as queries} from 'erxes-ui';
 
-export { queries, subscriptions };
+export { queries };

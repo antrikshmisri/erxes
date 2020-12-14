@@ -153,7 +153,7 @@ const converstationFacebookComments = `
 
 const converstationFacebookCommentsCount = `
   query converstationFacebookCommentsCount($postId: String!, $isResolved: Boolean) {
-    converstationFacebookCommentsCount(postId: $postId, isResolved:$isResolved) 
+    converstationFacebookCommentsCount(postId: $postId, isResolved:$isResolved)
   }
 `;
 
